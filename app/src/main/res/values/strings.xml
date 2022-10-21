@@ -4,4 +4,11 @@
 
     <string name="quotes">Citas célebres</string>
 
+    <string name="addQoute">Agregar Citas</string>
+    <string name="showRandom">Mostrar Aleatoriamente</string>
+    <string name="showQoute">Buscar Cita</string>
+    <string name="showAll">Lista de Citas</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>
