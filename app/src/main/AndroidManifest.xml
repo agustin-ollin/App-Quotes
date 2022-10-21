@@ -15,9 +15,17 @@
         android:theme="@style/Theme.Ejercicioquots"
         tools:targetApi="31">
         <activity
+            android:name=".ListAllQuotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FindQuotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddQuoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.view.NavigationDrawerActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +36,7 @@
             android:name=".presentation.view.QuoteRandomActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Ejercicioquots.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Ejercicioquots.NoActionBar" />
     </application>
 
 </manifest>

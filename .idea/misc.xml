@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/activity_add_quote.xml" value="0.1621376811594203" />
+        <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/activity_find_quotes.xml" value="0.25" />
         <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/activity_navigation_drawer.xml" value="0.14673913043478262" />
         <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/app_bar_main.xml" value="0.14673913043478262" />
+        <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/fragment_add_quote.xml" value="0.1621376811594203" />
+        <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/fragment_quote_random.xml" value="0.1621376811594203" />
         <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/layout/nav_header_main.xml" value="0.14673913043478262" />
         <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/menu/menu_main.xml" value="0.209375" />
         <entry key="..\:/Users/Ollin/Desktop/TRABAJO/ANDROID/quotesEjercicio/app/src/main/res/menu/navigation_drawer.xml" value="0.209375" />

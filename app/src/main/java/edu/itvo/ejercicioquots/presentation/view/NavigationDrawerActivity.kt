@@ -9,9 +9,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.navigation.NavigationView
 import edu.itvo.ejercicioquots.R
-import edu.itvo.ejercicioquots.databinding.ActivityMainBinding
 import edu.itvo.ejercicioquots.databinding.ActivityNavigationDrawerBinding
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +33,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
             toggle = ActionBarDrawerToggle(contexto, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
             //toggle = addActionBarDrawer(toolbar)
             drawer.addDrawerListener(toggle)
+            toggle.syncState()
 
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setHomeButtonEnabled(true)
@@ -44,15 +46,28 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
     fun addActionBarDrawer(toolbar: Toolbar): ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        item.isChecked = true
         when (item.itemId){
-            R.id.addQuoteMenu -> Toast.makeText(this, "Agregar Citas", Toast.LENGTH_SHORT).show()
-            R.id.showRandomMenu -> Toast.makeText(this, "Mostrar Cita Random", Toast.LENGTH_SHORT).show()
+            R.id.addQuoteMenu -> replaceFragment(AddQuoteFragment())
+            R.id.showRandomMenu -> replaceFragment(QuoteRandomFragment())
             R.id.showQuoteMenu -> Toast.makeText(this, "Buscar Cita", Toast.LENGTH_SHORT).show()
             R.id.showAllMenu -> Toast.makeText(this, "Lista de Citas", Toast.LENGTH_SHORT).show()
         }
 
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun replaceFragment(fragment: Fragment){
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+    }
+
+    fun replaceActivity(quoteRandomActivity: QuoteRandomActivity) {
+        val activity = supportParentActivityIntent
+        //val trans = activity.
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
