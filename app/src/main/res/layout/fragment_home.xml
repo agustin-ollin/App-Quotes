@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background"
+    tools:context=".presentation.view.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Aplicación de Citas Célebres"
+        android:textSize="28sp"
+        android:textColor="@color/text_quotes_random"
+        android:textStyle="bold"
+        android:gravity="center_horizontal|bottom|bottom"
+        android:layout_marginBottom="30dp"/>
+
+</FrameLayout>

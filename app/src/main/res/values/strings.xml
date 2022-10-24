@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">quotescelebrities</string>
+    <string name="app_name">Citas Célebres</string>
     <string name="action_settings">Settings</string>
 
     <string name="quotes">Citas célebres</string>
 
+    <string name="homeOption">Inicio</string>
     <string name="addQoute">Agregar Citas</string>
     <string name="showRandom">Mostrar Aleatoriamente</string>
     <string name="showQoute">Buscar Cita</string>

@@ -42,6 +42,10 @@ class NavigationDrawerActivity: AppCompatActivity(), NavigationView.OnNavigation
 
             val navigationView: NavigationView = findViewById(R.id.nav_view)
             navigationView.setNavigationItemSelectedListener(contexto)
+
+
+            replaceFragment(HomeFragment())
+
         }
     }
 
@@ -50,6 +54,7 @@ class NavigationDrawerActivity: AppCompatActivity(), NavigationView.OnNavigation
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         item.isChecked = true
         when (item.itemId){
+            R.id.home -> replaceFragment(HomeFragment())
             R.id.addQuoteMenu -> replaceFragment(AddQuoteFragment())
             R.id.showRandomMenu -> replaceFragment(QuoteRandomFragment())
             R.id.showQuoteMenu -> Toast.makeText(this, "Buscar Cita", Toast.LENGTH_SHORT).show()
