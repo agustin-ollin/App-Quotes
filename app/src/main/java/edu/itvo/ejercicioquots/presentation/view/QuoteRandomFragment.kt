@@ -5,31 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
-import edu.itvo.ejercicioquots.R
-import edu.itvo.ejercicioquots.databinding.ActivityMainBinding
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.AndroidEntryPoint
 import edu.itvo.ejercicioquots.databinding.FragmentQuoteRandomBinding
 import edu.itvo.ejercicioquots.presentation.viewmodel.QuoteViewModel
+import kotlinx.coroutines.launch
 
-class QuoteRandomFragment : Fragment() {
-    private lateinit var binding: FragmentQuoteRandomBinding
-    private val quoteViewModel: QuoteViewModel by viewModels()
+@AndroidEntryPoint
+class QuoteRandomFragment() : Fragment() {
+    private var binding: FragmentQuoteRandomBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quote_random, container, false)
+        binding = FragmentQuoteRandomBinding.inflate(inflater, container, false)
+        val quoteViewModel = ViewModelProvider(this).get(QuoteViewModel::class.java)
+
+        quoteViewModel.randomQuote()
+        observer(quoteViewModel)
+        binding?.viewContainer?.setOnClickListener {
+            quoteViewModel.randomQuote()
+        }
+
+        return binding!!.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
+    private fun observer(quoteViewModel: QuoteViewModel) {
+        lifecycleScope.launch {
+            quoteViewModel.quoteModel.collect {
+                binding!!.tvQuote.text = it.quote
+                binding!!.tvAuthor.text= it.author
+            }
+        }
+    }
 }

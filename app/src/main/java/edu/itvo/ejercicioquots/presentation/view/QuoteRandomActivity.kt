@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import edu.itvo.ejercicioquots.databinding.ActivityMainBinding
 import edu.itvo.ejercicioquots.presentation.viewmodel.QuoteViewModel
+import hilt_aggregated_deps._edu_itvo_ejercicioquots_QuotesApp_GeneratedInjector
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -14,7 +15,6 @@ class QuoteRandomActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val quoteViewModel: QuoteViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

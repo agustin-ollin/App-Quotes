@@ -20,7 +20,6 @@ class QuoteViewModel
     private val quoteModelRandomMutableStateFlow = MutableStateFlow(QuoteModel(0,"",""))
     val quoteModel: StateFlow<QuoteModel> = quoteModelRandomMutableStateFlow
 
-
     fun randomQuote() {
         viewModelScope.launch {
             quoteModelRandomMutableStateFlow.value = getQuoteRandomUseCase.getQuoteRandom().first()

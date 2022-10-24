@@ -12,10 +12,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import edu.itvo.ejercicioquots.R
 import edu.itvo.ejercicioquots.databinding.ActivityNavigationDrawerBinding
+import edu.itvo.ejercicioquots.presentation.viewmodel.QuoteViewModel
 
-class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+@AndroidEntryPoint
+class NavigationDrawerActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityNavigationDrawerBinding
@@ -33,7 +36,6 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
             toggle = ActionBarDrawerToggle(contexto, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
             //toggle = addActionBarDrawer(toolbar)
             drawer.addDrawerListener(toggle)
-            toggle.syncState()
 
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setHomeButtonEnabled(true)
@@ -63,11 +65,6 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
-    }
-
-    fun replaceActivity(quoteRandomActivity: QuoteRandomActivity) {
-        val activity = supportParentActivityIntent
-        //val trans = activity.
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
