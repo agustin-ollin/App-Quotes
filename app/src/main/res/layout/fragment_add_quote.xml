@@ -38,8 +38,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputCita"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:gravity="top"
+                android:layout_height="150dp"
+                android:inputType="text|textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
